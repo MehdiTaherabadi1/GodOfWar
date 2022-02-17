@@ -84,9 +84,9 @@
       <Project>{0ed05636-9c82-4d92-8130-83e8477d52c1}</Project>
       <Name>UOM.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UOM.Domain.Persistence.NH\UOM.Domain.Persistence.NH.csproj">
+    <ProjectReference Include="..\UOM.Domain.Persistence.NH\UOM.Persistence.NH.csproj">
       <Project>{a59e898b-6b6c-45e4-91dc-f20e77e65ef3}</Project>
-      <Name>UOM.Domain.Persistence.NH</Name>
+      <Name>UOM.Persistence.NH</Name>
     </ProjectReference>
     <ProjectReference Include="..\UOM.Domain\UOM.Domain.csproj">
       <Project>{a6aa75a8-a5f3-482c-8af3-6eddb917779c}</Project>

@@ -4,9 +4,9 @@ using Framework.Domain;
 using NHibernate;
 using UOM.Application;
 using UOM.Domain.Model.Dimensions;
-using UOM.Domain.Persistence.NH.Mappings;
-using UOM.Domain.Persistence.NH.Repositories;
 using UOM.Interface.RestApi;
+using UOM.Persistence.NH.Mappings;
+using UOM.Persistence.NH.Repositories;
 
 namespace UOM.Config.Castle
 {
