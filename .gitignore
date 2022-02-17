@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Build/tools/nuget.exe
+/Build/tools/xunit.runner.console.2.2.0/tools
+/Build/tools/Cake
+/Build/tools/xunit.runner.console.2.2.0
