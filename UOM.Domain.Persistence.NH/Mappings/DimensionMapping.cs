@@ -13,6 +13,7 @@ namespace UOM.Domain.Persistence.NH.Mappings
         public DimensionMapping()
         {
             Table("Dimensions");
+            Lazy(false);
             Id(a=>a.Id);
             Property(a=>a.Name);
         }

@@ -17,7 +17,7 @@ namespace UOM.Application
 
         public void Create(CreateDimensionDTO dto)
         {
-            var dimension = new Dimension(1,dto.Name);
+            var dimension = new Dimension(dto.Name);
             _repository.Add(dimension);
         }
     }
