@@ -1,6 +1,9 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using Framework.Domain;
+using Frameowork.Application;
+using Frameowork.NH;
+//using Frameowork.Application;
+//using Framework.Domain;
 using NHibernate;
 using UOM.Application;
 using UOM.Domain.Model.Dimensions;
@@ -14,9 +17,8 @@ namespace UOM.Config.Castle
     {
         public static void Config(IWindsorContainer container)
         {
-            container.Register(Component.For<IDimensionService>()
-                .ImplementedBy<DimensionService>()
-                .LifestylePerWebRequest());
+            container.Register(Classes.FromAssemblyContaining<DimensionCommandHandler>()
+                .BasedOn(typeof(ICommandHandler<>)).LifestyleScoped());
 
             container.Register(Component.For<DimensionsController>()
                 .LifestyleTransient());
@@ -28,10 +30,10 @@ namespace UOM.Config.Castle
         {
             ISessionFactory sessionFactory = SessionFactoryConfiguration.Create("DBConnection", typeof(DimensionMapping).Assembly);
 
-            container.Register(Component.For<ISession>().UsingFactoryMethod(f => sessionFactory.OpenSession()).LifestylePerWebRequest());
+            container.Register(Component.For<ISession>().UsingFactoryMethod(f => sessionFactory.OpenSession()).LifestyleScoped());
 
             container.Register(Component.For<IDimensionRepository>().ImplementedBy<DimensionRepository>()
-                .LifestylePerWebRequest());
+                .LifestyleScoped());
         }
     }
 }

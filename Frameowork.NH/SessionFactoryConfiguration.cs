@@ -7,7 +7,7 @@ using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Mapping.ByCode;
 
-namespace Framework.Domain
+namespace Frameowork.NH
 {
     public static class SessionFactoryConfiguration
     {

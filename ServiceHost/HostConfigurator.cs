@@ -11,6 +11,7 @@ namespace ServiceHost
         {
             var container = new WindsorContainer();
             UomBootstrapper.Config(container);
+           Framework.ConfigCastle.FrameworkBootstrap.Config(container);
 
             var castleActivator = new CastleControllerActivator(container);
             GlobalConfiguration.Configuration

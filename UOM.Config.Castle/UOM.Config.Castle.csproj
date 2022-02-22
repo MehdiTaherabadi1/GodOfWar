@@ -35,10 +35,10 @@
       <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.5.1.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=5.3.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.3.10\lib\net461\NHibernate.dll</HintPath>
@@ -72,9 +72,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Frameowork.Application\Frameowork.Application.csproj">
+      <Project>{FD2C7F10-E40F-4966-A0CC-59FBAA7A5F14}</Project>
+      <Name>Frameowork.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Frameowork.NH\Frameowork.NH.csproj">
       <Project>{52eb3f21-6840-4ff0-ac52-c9323b4ef046}</Project>
       <Name>Frameowork.NH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.CastleWindsor\Framework.CastleWindsor.csproj">
+      <Project>{54bed5ee-ce9d-489e-a9eb-d93014ac198b}</Project>
+      <Name>Framework.CastleWindsor</Name>
     </ProjectReference>
     <ProjectReference Include="..\UOM.Application.Contracts\UOM.Application.Contracts.csproj">
       <Project>{6277c973-c95c-41c0-ad6e-825845a72cc4}</Project>

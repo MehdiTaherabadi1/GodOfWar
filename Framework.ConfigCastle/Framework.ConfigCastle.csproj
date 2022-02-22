@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{52EB3F21-6840-4FF0-AC52-C9323B4EF046}</ProjectGuid>
+    <ProjectGuid>{55A09E77-0FFF-4281-86F9-CADC469AA6F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Frameowork.NH</RootNamespace>
-    <AssemblyName>Frameowork.NH</AssemblyName>
+    <RootNamespace>Framework.ConfigCastle</RootNamespace>
+    <AssemblyName>Framework.ConfigCastle</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,26 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate, Version=5.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.5.0.0\lib\net461\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.5.1.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Transactions" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,8 +51,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrameworkBootstrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SessionFactoryConfiguration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Frameowork.Application\Frameowork.Application.csproj">
+      <Project>{fd2c7f10-e40f-4966-a0cc-59fbaa7a5f14}</Project>
+      <Name>Frameowork.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameowork.Core\Frameowork.Core.csproj">
+      <Project>{d8e86af9-b64e-4f81-a5a9-13d81b990a19}</Project>
+      <Name>Frameowork.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameowork.NH\Frameowork.NH.csproj">
+      <Project>{52eb3f21-6840-4ff0-ac52-c9323b4ef046}</Project>
+      <Name>Frameowork.NH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.CastleWindsor\Framework.CastleWindsor.csproj">
+      <Project>{54bed5ee-ce9d-489e-a9eb-d93014ac198b}</Project>
+      <Name>Framework.CastleWindsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Domain\Framework.Domain.csproj">
+      <Project>{80323dad-2d29-4e5b-9f84-cc1883657969}</Project>
+      <Name>Framework.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

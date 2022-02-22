@@ -6,18 +6,18 @@ using Xunit;
 
 namespace UOM.Application.Tests.Unit
 {
-    public class DimensionServiceTests
+    public class DimensionCommandHandlerTests
     {
         [Fact]
-        public void Create_should_add_dimension_to_repository()
+        public void HandlerCreate_should_add_dimension_to_repository()
         {
             const string time = "Time";
-            var dto = new CreateDimensionDTO { Name = time };
+            var dto = new CreateDimensionCommand { Name = time };
             var repository = Substitute.For<IDimensionRepository>();
-            var service = new DimensionService(repository);
+            var service = new DimensionCommandHandler(repository);
             var expectedDimension = new Dimension(time);
 
-            service.Create(dto);
+            service.Handler(dto);
 
             repository.Received(1).Add(expectedDimension);
         }

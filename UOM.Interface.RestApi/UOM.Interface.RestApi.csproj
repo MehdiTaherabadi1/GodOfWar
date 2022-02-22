@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Frameowork.Application\Frameowork.Application.csproj">
+      <Project>{FD2C7F10-E40F-4966-A0CC-59FBAA7A5F14}</Project>
+      <Name>Frameowork.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UOM.Application.Contracts\UOM.Application.Contracts.csproj">
       <Project>{6277c973-c95c-41c0-ad6e-825845a72cc4}</Project>
       <Name>UOM.Application.Contracts</Name>

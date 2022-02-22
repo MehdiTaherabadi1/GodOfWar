@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UOM.Application
 {
-    public class CreateDimensionDTO
+    public class CreateDimensionCommand
     {
         public string Name { get; set; }
     }
