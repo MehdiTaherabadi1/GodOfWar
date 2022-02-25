@@ -2,8 +2,6 @@
 using Castle.Windsor;
 using Frameowork.Application;
 using Frameowork.NH;
-//using Frameowork.Application;
-//using Framework.Domain;
 using NHibernate;
 using UOM.Application;
 using UOM.Domain.Model.Dimensions;
@@ -18,7 +16,9 @@ namespace UOM.Config.Castle
         public static void Config(IWindsorContainer container)
         {
             container.Register(Classes.FromAssemblyContaining<DimensionCommandHandler>()
-                .BasedOn(typeof(ICommandHandler<>)).LifestyleScoped());
+                .BasedOn(typeof(ICommandHandler<>))
+                .WithServiceFromInterface()
+                .LifestyleTransient());
 
             container.Register(Component.For<DimensionsController>()
                 .LifestyleTransient());
@@ -28,11 +28,14 @@ namespace UOM.Config.Castle
 
         private static void ConfigPersistence(IWindsorContainer container)
         {
-            ISessionFactory sessionFactory = SessionFactoryConfiguration.Create("DBConnection", typeof(DimensionMapping).Assembly);
+            var sessionFactory = SessionFactoryConfiguration.Create("DBConnection", typeof(DimensionMapping).Assembly);
 
-            container.Register(Component.For<ISession>().UsingFactoryMethod(f => sessionFactory.OpenSession()).LifestyleScoped());
+            container.Register(Component.For<ISession>()
+                .UsingFactoryMethod(a => sessionFactory.OpenSession())
+                .LifestyleScoped());
 
-            container.Register(Component.For<IDimensionRepository>().ImplementedBy<DimensionRepository>()
+            container.Register(Component.For<IDimensionRepository>()
+                .ImplementedBy<DimensionRepository>()
                 .LifestyleScoped());
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using Castle.Windsor;
+using Framework.ConfigCastle;
 using UOM.Config.Castle;
 
 namespace ServiceHost
@@ -11,7 +12,7 @@ namespace ServiceHost
         {
             var container = new WindsorContainer();
             UomBootstrapper.Config(container);
-           Framework.ConfigCastle.FrameworkBootstrap.Config(container);
+            FrameworkBootstrapper.Config(container);
 
             var castleActivator = new CastleControllerActivator(container);
             GlobalConfiguration.Configuration
