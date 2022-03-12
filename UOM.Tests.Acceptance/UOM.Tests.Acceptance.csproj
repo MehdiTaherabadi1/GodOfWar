@@ -108,24 +108,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dimension.feature.cs">
+    <Compile Include="features\Dimension.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dimension.feature</DependentUpon>
     </Compile>
+    <Compile Include="Hooks\HostingHook.cs" />
     <Compile Include="ManagingDimensionsSteps.cs" />
+    <Compile Include="Model\DimensionTestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScaledUnitOfMeasureSteps.cs" />
+    <Compile Include="Tasks\DimensionTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Dimension.feature">
+    <None Include="features\Dimension.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Dimension.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="ConvertUnitOfMeasures.feature" />
+    <None Include="features\ConvertUnitOfMeasures.feature" />
+    <None Include="step\Product.feature" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

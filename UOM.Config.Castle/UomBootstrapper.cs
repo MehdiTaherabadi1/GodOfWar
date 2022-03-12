@@ -1,4 +1,5 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Lifestyle;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Frameowork.Application;
 using Frameowork.NH;
@@ -8,6 +9,7 @@ using UOM.Domain.Model.Dimensions;
 using UOM.Interface.RestApi;
 using UOM.Persistence.NH.Mappings;
 using UOM.Persistence.NH.Repositories;
+using UOM.Query.Model.Reposiotres;
 
 namespace UOM.Config.Castle
 {
@@ -17,11 +19,15 @@ namespace UOM.Config.Castle
         {
             container.Register(Classes.FromAssemblyContaining<DimensionCommandHandler>()
                 .BasedOn(typeof(ICommandHandler<>))
-                .WithServiceFromInterface()
+                .WithService.FirstInterface()
                 .LifestyleTransient());
 
             container.Register(Component.For<DimensionsController>()
                 .LifestyleTransient());
+
+            container.Register(Component.For<IDimensionQueryRepository>()
+                .ImplementedBy<DimensionQueryRepository>()
+                .LifestylePerWebRequest());
 
             ConfigPersistence(container);
         }
@@ -29,6 +35,8 @@ namespace UOM.Config.Castle
         private static void ConfigPersistence(IWindsorContainer container)
         {
             var sessionFactory = SessionFactoryConfiguration.Create("DBConnection", typeof(DimensionMapping).Assembly);
+
+            container.BeginScope();
 
             container.Register(Component.For<ISession>()
                 .UsingFactoryMethod(a => sessionFactory.OpenSession())

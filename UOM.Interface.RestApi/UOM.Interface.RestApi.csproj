@@ -81,6 +81,10 @@
       <Project>{6277c973-c95c-41c0-ad6e-825845a72cc4}</Project>
       <Name>UOM.Application.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UOM.Query.Model\UOM.Query.Model.csproj">
+      <Project>{56fbe27c-2348-444f-8b74-b76a6a3cf9e6}</Project>
+      <Name>UOM.Query.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

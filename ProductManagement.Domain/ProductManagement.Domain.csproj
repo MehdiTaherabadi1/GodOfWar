@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD2C7F10-E40F-4966-A0CC-59FBAA7A5F14}</ProjectGuid>
+    <ProjectGuid>{A394C16B-3E42-44A9-99D6-5BCA7BF8A2BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Frameowork.Application</RootNamespace>
-    <AssemblyName>Frameowork.Application</AssemblyName>
+    <RootNamespace>ProductManagement.Domain</RootNamespace>
+    <AssemblyName>ProductManagement.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,20 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor.Lifestyles, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.Lifestyles.0.4.0\lib\net45\Castle.Windsor.Lifestyles.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,22 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandBus.cs" />
-    <Compile Include="Decorators\LoggerCommandHandlerDecorators.cs" />
-    <Compile Include="ICommandBus.cs" />
-    <Compile Include="ICommandHandler.cs" />
+    <Compile Include="Models\Constraint\Boolean.cs" />
+    <Compile Include="Models\Constraint\Constraint.cs" />
+    <Compile Include="Models\Products\ActualProduct.cs" />
+    <Compile Include="Models\Products\GenericProduct.cs" />
+    <Compile Include="Models\Products\Package.cs" />
+    <Compile Include="Models\Products\Product.cs" />
+    <Compile Include="Models\Products\ProductConstraint\NumberRangeConstraint.cs" />
+    <Compile Include="Models\Products\ProductConstraint\Options.cs" />
+    <Compile Include="Models\Products\ProductConstraint\ProductConstraint.cs" />
+    <Compile Include="Models\Products\ProductConstraint\SelectiveConstraint.cs" />
+    <Compile Include="Models\Products\ProductConstraint\StringConstraint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Frameowork.Core\Frameowork.Core.csproj">
-      <Project>{D8E86AF9-B64E-4F81-A5A9-13D81B990A19}</Project>
-      <Name>Frameowork.Core</Name>
+    <ProjectReference Include="..\Framework.Domain\Framework.Domain.csproj">
+      <Project>{80323DAD-2D29-4E5B-9F84-CC1883657969}</Project>
+      <Name>Framework.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
