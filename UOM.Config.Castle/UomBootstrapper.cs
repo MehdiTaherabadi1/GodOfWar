@@ -2,6 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Frameowork.Application;
+using Frameowork.Core;
 using Frameowork.NH;
 using NHibernate;
 using UOM.Application;
@@ -22,7 +23,9 @@ namespace UOM.Config.Castle
                 .WithService.FirstInterface()
                 .LifestyleTransient());
 
-            container.Register(Component.For<DimensionsController>()
+            container.Register(
+                Classes.FromAssemblyContaining<DimensionsController>()
+                .BasedOn<IGateway>()
                 .LifestyleTransient());
 
             container.Register(Component.For<IDimensionQueryRepository>()

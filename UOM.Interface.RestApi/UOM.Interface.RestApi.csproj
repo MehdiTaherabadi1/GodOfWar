@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DimensionsQueryController.cs" />
     <Compile Include="DimensionsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,6 +77,10 @@
     <ProjectReference Include="..\Frameowork.Application\Frameowork.Application.csproj">
       <Project>{FD2C7F10-E40F-4966-A0CC-59FBAA7A5F14}</Project>
       <Name>Frameowork.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameowork.Core\Frameowork.Core.csproj">
+      <Project>{d8e86af9-b64e-4f81-a5a9-13d81b990a19}</Project>
+      <Name>Frameowork.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\UOM.Application.Contracts\UOM.Application.Contracts.csproj">
       <Project>{6277c973-c95c-41c0-ad6e-825845a72cc4}</Project>
