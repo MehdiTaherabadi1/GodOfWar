@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Frameowork.Core.EventHandling
 {
-    public interface IEventAggregator
+    public interface IEventPublisher
     {
         void Publish<T>(T @event) where T : IEvent;
-        void Subscribe<T>(IEventHandler<T> eventHandler) where T : IEvent;
     }
 }

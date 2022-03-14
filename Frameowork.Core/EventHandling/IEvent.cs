@@ -8,5 +8,6 @@ namespace Frameowork.Core.EventHandling
 {
     public interface IEvent
     {
+        Guid EventId { get; }
     }
 }

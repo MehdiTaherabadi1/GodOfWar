@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Frameowork.Core.EventHandling
 {
-    public class EventAggregator : IEventAggregator
+    public class EventAggregator : IEventPublisher, IEventListener
     {
         private List<object> _subscribers = new List<object>();
         public void Publish<T>(T @event) where T : IEvent
@@ -21,6 +21,11 @@ namespace Frameowork.Core.EventHandling
         public void Subscribe<T>(IEventHandler<T> eventHandler) where T : IEvent
         {
             _subscribers.Add(eventHandler);
+        }
+
+        public void Subscribe<T>(Action<T> action) where T : IEvent
+        {
+            _subscribers.Add(new ActionHandler<T>(action));
         }
     }
 }

@@ -62,9 +62,17 @@
     <Compile Include="Model\UnitOfMeasures\UnitOfMeasure.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Frameowork.Core\Frameowork.Core.csproj">
+      <Project>{D8E86AF9-B64E-4F81-A5A9-13D81B990A19}</Project>
+      <Name>Frameowork.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Domain\Framework.Domain.csproj">
       <Project>{80323DAD-2D29-4E5B-9F84-CC1883657969}</Project>
       <Name>Framework.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UOM.Domain.Contracts\UOM.Domain.Contracts.csproj">
+      <Project>{E770AD93-079E-4D96-A527-C4B8DE3955BB}</Project>
+      <Name>UOM.Domain.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
