@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentAssertions;
+using Frameowork.Core.EventHandling;
 using UOM.Domain.Model.Dimensions;
 using UOM.Domain.Model.UnitOfMeasures;
 using Xunit;
@@ -11,7 +12,7 @@ namespace UOM.Domain.Tests.Unit
         private readonly BaseUnitOfMeasure _baseMeasurement;
         public ScaledUntiOfMeasureTests()
         {
-            var dimension = new Dimension("Length");
+            var dimension = new Dimension("Length",new EventAggregator());
             _baseMeasurement = new BaseUnitOfMeasure(dimension, "Meter", "MR");
         }
 

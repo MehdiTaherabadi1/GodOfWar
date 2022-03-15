@@ -5,6 +5,8 @@ using Frameowork.Application;
 using Frameowork.Core;
 using Frameowork.NH;
 using NHibernate;
+using System.Data;
+using System.Data.Common;
 using UOM.Application;
 using UOM.Domain.Model.Dimensions;
 using UOM.Interface.RestApi;
@@ -42,7 +44,15 @@ namespace UOM.Config.Castle
             container.BeginScope();
 
             container.Register(Component.For<ISession>()
-                .UsingFactoryMethod(a => sessionFactory.OpenSession())
+                .UsingFactoryMethod(a =>
+                {
+                    var connection = a.Resolve<DbConnection>();
+
+                    return sessionFactory
+                       .WithOptions()
+                       .Connection(connection)
+                       .OpenSession();
+                })
                 .LifestyleScoped());
 
             container.Register(Component.For<IDimensionRepository>()

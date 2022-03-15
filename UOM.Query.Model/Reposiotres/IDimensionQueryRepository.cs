@@ -8,6 +8,6 @@ namespace UOM.Query.Model.Reposiotres
     public interface IDimensionQueryRepository
     {
         Task<List<DimensionQuery>> GetAll();
-        Task<List<DimensionQuery>> GetById(Guid id);
+        Task<DimensionQuery> GetById(Guid id);
     }
 }

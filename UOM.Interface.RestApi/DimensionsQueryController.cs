@@ -27,7 +27,7 @@ namespace UOM.Interface.RestApi
             return await _dimensionQueryRepository.GetAll();
         }
 
-        public async Task<List<DimensionQuery>> Get(Guid id)
+        public async Task<DimensionQuery> Get(Guid id)
         {
             return await _dimensionQueryRepository.GetById(id);
         }

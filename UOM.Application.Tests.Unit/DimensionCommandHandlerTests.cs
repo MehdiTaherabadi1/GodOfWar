@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentAssertions;
+using Frameowork.Core.EventHandling;
 using NSubstitute;
 using UOM.Domain.Model.Dimensions;
 using Xunit;
@@ -14,8 +15,8 @@ namespace UOM.Application.Tests.Unit
             const string time = "Time";
             var dto = new CreateDimensionCommand { Name = time };
             var repository = Substitute.For<IDimensionRepository>();
-            var service = new DimensionCommandHandler(repository);
-            var expectedDimension = new Dimension(time);
+            var service = new DimensionCommandHandler(repository,new EventAggregator());
+            var expectedDimension = new Dimension(time,new EventAggregator());
 
             service.Handler(dto);
 
