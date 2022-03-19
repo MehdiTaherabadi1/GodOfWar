@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductManagement.Domain.Test.Unit.Models.Product.ProductConstraint
+namespace Framework.Domain.Specifications
 {
-    public class DuplicateItemException : Exception
+    public interface ISpecification<T>
     {
+        bool IsSatisfiedBy(T entry);
     }
 }
