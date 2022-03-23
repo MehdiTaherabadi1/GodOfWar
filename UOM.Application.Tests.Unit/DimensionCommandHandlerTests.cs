@@ -13,14 +13,17 @@ namespace UOM.Application.Tests.Unit
         public void HandlerCreate_should_add_dimension_to_repository()
         {
             const string time = "Time";
-            var dto = new CreateDimensionCommand { Name = time };
+            CreateDimensionCommand command = new CreateDimensionCommand { Name = time };
             var repository = Substitute.For<IDimensionRepository>();
-            var service = new DimensionCommandHandler(repository,new EventAggregator());
-            var expectedDimension = new Dimension(time,new EventAggregator());
+            var dimensionCommandHandler = new DimensionCommandHandler(repository, new EventAggregator());
+            var expectedDimension = new Dimension(time, new EventAggregator());
 
-            service.Handler(dto);
+            dimensionCommandHandler.Handler(command);
 
-            repository.Received(1).Add(expectedDimension);
+            repository.Received(1).
+                Add(Verify.That<Dimension>(a => a.Should().
+                    BeEquivalentTo(expectedDimension, b =>
+                      b.Excluding(g => g.Id).ComparingByMembers<Dimension>())));
         }
     }
 }
