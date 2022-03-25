@@ -15,7 +15,7 @@ namespace UOM.Interface.RestApi
 {
     public class DimensionsQueryController : ApiController, IGateway
     {
-        private readonly IDimensionQueryRepository _dimensionQueryRepository;
+        private IDimensionQueryRepository _dimensionQueryRepository;
         public DimensionsQueryController(IDimensionQueryRepository dimensionQueryRepository)
         {
             _dimensionQueryRepository = dimensionQueryRepository;

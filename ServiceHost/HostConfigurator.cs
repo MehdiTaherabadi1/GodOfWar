@@ -9,17 +9,17 @@ namespace ServiceHost
 {
     public static class HostConfigurator
     {
-        public static void Config()
+        public static void Config(HttpConfiguration configuration)
         {
             var container = new WindsorContainer();
             UomBootstrapper.Config(container);
             FrameworkBootstrapper.Config(container, "DBConnection");
 
             var castleActivator = new CastleControllerActivator(container);
-            GlobalConfiguration.Configuration
+            configuration
                 .Services.Replace(typeof(IHttpControllerActivator), castleActivator);
 
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector), new CqsControllerSelector(GlobalConfiguration.Configuration));
+            configuration.Services.Replace(typeof(IHttpControllerSelector), new CqsControllerSelector(GlobalConfiguration.Configuration));
         }
     }
 }

@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Tests.Acc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Serilog", "Framework.Serilog\Framework.Serilog.csproj", "{A1B24EDF-D787-4EB3-9F19-CD0E39C0F663}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{DCE6C445-2D0E-438A-B80B-CDC601140566}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -189,6 +191,10 @@ Global
 		{A1B24EDF-D787-4EB3-9F19-CD0E39C0F663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1B24EDF-D787-4EB3-9F19-CD0E39C0F663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1B24EDF-D787-4EB3-9F19-CD0E39C0F663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE6C445-2D0E-438A-B80B-CDC601140566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE6C445-2D0E-438A-B80B-CDC601140566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE6C445-2D0E-438A-B80B-CDC601140566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE6C445-2D0E-438A-B80B-CDC601140566}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

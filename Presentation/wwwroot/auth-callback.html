@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="lib/oidc-client.min.js"></script>
+    <script src="lib/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var config = {
+            authority: "https://localhost:44310/",
+            client_id: "GodOfWarFront",
+            redirect_uri: "http://localhost:7000/auth-callback.html",
+            response_type: "code",
+            scope: "openid profile",
+        };
+
+        var userManager = new UserManager(config);
+        userManager.signinRedirectCallback().then(function (res) {
+            debugger;
+            console.log(res);
+            $.ajax({
+                method: "GET",
+                headers: {
+                    "authorization" : res.token_type + " " + res.access_token
+                },
+                url: "http://localhost:2000/api/dimensions/ae63cd79-8bde-4e36-8d4c-d372ee881b4c"
+            }).done(function (res) {
+                alert(res);
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

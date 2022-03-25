@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ServiceHost
 {
@@ -9,9 +10,9 @@ namespace ServiceHost
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            var crosAttrebute = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(crosAttrebute);
 
-            // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
