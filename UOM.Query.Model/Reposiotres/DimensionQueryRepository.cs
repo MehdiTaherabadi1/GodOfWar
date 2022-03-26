@@ -28,8 +28,8 @@ namespace UOM.Query.Model.Reposiotres
 
         public async Task<DimensionQuery> GetById(Guid id)
         {
-            var query = string.Format("select * from Dimensionswhere id = {0}", id);
-            return await _dbConnection.QueryFirstOrDefaultAsync<DimensionQuery>(query);
+            var result = await _dbConnection.QueryFirstOrDefaultAsync<DimensionQuery>("select * from Dimensions where id=@Id", new { Id = id });
+            return result;
         }
     }
 }

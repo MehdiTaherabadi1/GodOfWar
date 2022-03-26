@@ -107,6 +107,14 @@
       <Project>{a6aa75a8-a5f3-482c-8af3-6eddb917779c}</Project>
       <Name>UOM.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UOM.Interface.Facade.Contracts\UOM.Interface.Facade.Contracts.csproj">
+      <Project>{09497e6a-a38f-4c5f-acc7-c894352cacbc}</Project>
+      <Name>UOM.Interface.Facade.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UOM.Interface.Facade\UOM.Interface.Facade.csproj">
+      <Project>{b5743f74-bd54-4e14-9a07-ba78a7151b6a}</Project>
+      <Name>UOM.Interface.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UOM.Interface.RestApi\UOM.Interface.RestApi.csproj">
       <Project>{0a3974a6-17be-46dc-a923-daef902a7a7e}</Project>
       <Name>UOM.Interface.RestApi</Name>

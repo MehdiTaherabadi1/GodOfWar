@@ -9,6 +9,8 @@ using System.Data;
 using System.Data.Common;
 using UOM.Application;
 using UOM.Domain.Model.Dimensions;
+using UOM.Interface.Facade;
+using UOM.Interface.Facade.Contracts;
 using UOM.Interface.RestApi;
 using UOM.Persistence.NH.Mappings;
 using UOM.Persistence.NH.Repositories;
@@ -22,13 +24,18 @@ namespace UOM.Config.Castle
         {
             container.Register(Classes.FromAssemblyContaining<DimensionCommandHandler>()
                 .BasedOn(typeof(ICommandHandler<>))
-                .WithService.FirstInterface()
+                .WithServiceAllInterfaces()
                 .LifestyleTransient());
 
             container.Register(
                 Classes.FromAssemblyContaining<DimensionsController>()
                 .BasedOn<IGateway>()
                 .LifestyleTransient());
+
+            container.Register(Classes.FromAssemblyContaining<DimensionFacade>()
+                .BasedOn<IFacadeService>()
+                .WithServiceAllInterfaces()
+                .LifestyleBoundToNearest<IGateway>());
 
             container.Register(Component.For<IDimensionQueryRepository>()
                 .ImplementedBy<DimensionQueryRepository>()

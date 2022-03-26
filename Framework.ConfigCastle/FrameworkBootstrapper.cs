@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Framework.ConfigCastle
 {
-    public static class FrameworkBootstrapper
+    public class FrameworkBootstrapper
     {
         public static void Config(IWindsorContainer container, string conectionStringKey)
         {

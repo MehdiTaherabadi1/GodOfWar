@@ -23,11 +23,12 @@ namespace ServiceHost.App_Start
 
         private static void SetupAccessTokenValidation(IAppBuilder app)
         {
-            app.UseIdentityServerBearerTokenAuthentication(
-                            new IdentityServerBearerTokenAuthenticationOptions
-                            {
-                                Authority = "https://localhost:44310"
-                            });
+            //app.UseIdentityServerBearerTokenAuthentication(
+            //                new IdentityServerBearerTokenAuthenticationOptions
+            //                {
+            //                    Authority = "https://localhost:44310",
+
+            //                });
         }
     }
 }

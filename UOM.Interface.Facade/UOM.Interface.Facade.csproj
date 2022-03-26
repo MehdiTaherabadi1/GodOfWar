@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A3974A6-17BE-46DC-A923-DAEF902A7A7E}</ProjectGuid>
+    <ProjectGuid>{B5743F74-BD54-4E14-9A07-BA78A7151B6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UOM.Interface.RestApi</RootNamespace>
-    <AssemblyName>UOM.Interface.RestApi</AssemblyName>
+    <RootNamespace>UOM.Interface.Facade</RootNamespace>
+    <AssemblyName>UOM.Interface.Facade</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,32 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor.Lifestyles, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.Lifestyles.0.4.0\lib\net45\Castle.Windsor.Lifestyles.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,13 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DimensionsQueryController.cs" />
-    <Compile Include="DimensionsController.cs" />
+    <Compile Include="DimensionFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Frameowork.Application\Frameowork.Application.csproj">
@@ -79,20 +51,20 @@
       <Name>Frameowork.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\Frameowork.Core\Frameowork.Core.csproj">
-      <Project>{d8e86af9-b64e-4f81-a5a9-13d81b990a19}</Project>
+      <Project>{D8E86AF9-B64E-4F81-A5A9-13D81B990A19}</Project>
       <Name>Frameowork.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\UOM.Application.Contracts\UOM.Application.Contracts.csproj">
-      <Project>{6277c973-c95c-41c0-ad6e-825845a72cc4}</Project>
+      <Project>{6277C973-C95C-41C0-AD6E-825845A72CC4}</Project>
       <Name>UOM.Application.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UOM.Domain.Contracts\UOM.Domain.Contracts.csproj">
+      <Project>{E770AD93-079E-4D96-A527-C4B8DE3955BB}</Project>
+      <Name>UOM.Domain.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\UOM.Interface.Facade.Contracts\UOM.Interface.Facade.Contracts.csproj">
       <Project>{09497E6A-A38F-4C5F-ACC7-C894352CACBC}</Project>
       <Name>UOM.Interface.Facade.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UOM.Query.Model\UOM.Query.Model.csproj">
-      <Project>{56fbe27c-2348-444f-8b74-b76a6a3cf9e6}</Project>
-      <Name>UOM.Query.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using Frameowork.Core;
+using System.Linq;
 
 namespace Framework.CastleWindsor
 {
@@ -8,7 +9,7 @@ namespace Framework.CastleWindsor
         private IWindsorContainer _container;
         public WindsorServiceLocator(IWindsorContainer container)
         {
-            this._container = container;
+            _container = container;
         }
 
         public T GetInstance<T>()
