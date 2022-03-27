@@ -5,6 +5,9 @@ using Frameowork.Application;
 using Frameowork.Core;
 using Frameowork.NH;
 using NHibernate;
+using NHibernate.SqlCommand;
+using NHibernate.Type;
+using System.Collections;
 using System.Data;
 using System.Data.Common;
 using UOM.Application;
@@ -22,6 +25,8 @@ namespace UOM.Config.Castle
     {
         public static void Config(IWindsorContainer container)
         {
+            container.Register(Component.For<PermissionInterceptor>().LifestyleBoundToNearest<IGateway>());
+
             container.Register(Classes.FromAssemblyContaining<DimensionCommandHandler>()
                 .BasedOn(typeof(ICommandHandler<>))
                 .WithServiceAllInterfaces()
@@ -35,7 +40,8 @@ namespace UOM.Config.Castle
             container.Register(Classes.FromAssemblyContaining<DimensionFacade>()
                 .BasedOn<IFacadeService>()
                 .WithServiceAllInterfaces()
-                .LifestyleBoundToNearest<IGateway>());
+                .LifestyleBoundToNearest<IGateway>()
+                .Configure(f => f.Interceptors<PermissionInterceptor>()));
 
             container.Register(Component.For<IDimensionQueryRepository>()
                 .ImplementedBy<DimensionQueryRepository>()
